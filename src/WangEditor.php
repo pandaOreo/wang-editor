@@ -13,7 +13,7 @@ use Dcat\Admin\Form\Field;
 
 class WangEditor extends Field
 {
-    protected $view = 'wang-editor:index';
+    protected $view = 'wang-editor::index';
 
     public function render()
     {
