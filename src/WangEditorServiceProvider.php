@@ -19,13 +19,13 @@ class WangEditorServiceProvider extends ServiceProvider
     protected $js = [];
     protected $css = [];
 
-    protected $menu = [
-        [
-            'title' => '编辑器',
-            'uri' => 'wang-editor',
-            'icon' => '', // 图标可以留空
-        ],
-    ];
+//    protected $menu = [
+//        [
+//            'title' => '编辑器',
+//            'uri' => 'wang-editor',
+//            'icon' => '', // 图标可以留空
+//        ],
+//    ];
 
     public function register()
     {
