@@ -8,6 +8,7 @@
 
 namespace PandaOreo\WangEditor;
 
+use Dcat\Admin\Admin;
 use Dcat\Admin\Form\Field;
 
 class WangEditor extends Field
