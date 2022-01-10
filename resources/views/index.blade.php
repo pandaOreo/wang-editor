@@ -1,10 +1,10 @@
 <div class="{{$viewClass['form-group']}}">
-    <label for="{{$id ?? ''}}" class="{{$viewClass['label']}} control-label">富文本</label>
+    <label class="{{$viewClass['label']}} control-label">富文本</label>
     <div class="{{$viewClass['field']}}">
         <input type="hidden" id="details" name="{{$name}}" value="{{old($column, $value)}}">
         <div class="extension-demo">
             @csrf
-            <div id="div1">
+            <div id="{{$name}}">
                 @if($value)
                     {!! $value !!}
                 @else
@@ -17,7 +17,7 @@
 <!-- 引入 wangEditor.min.js -->
 <script type="text/javascript">
     const E = window.wangEditor
-    const editor = new E('#div1')
+    const editor = new E('#' + "{{$name}}")
     // editor.config.showLinkImg = false
     editor.config.height = 500
     editor.config.uploadImgMaxLength = 5 // 一次最多上传 5 个图片
