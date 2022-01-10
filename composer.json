@@ -1,0 +1,36 @@
+{
+    "name": "panda-oreo/wang-editor",
+    "alias": "",
+    "description": "富文本编辑器wangEditor",
+    "type": "library",
+    "keywords": [
+        "dcat-admin",
+        "extension",
+        "wangEditor"
+    ],
+    "homepage": "https://github.com/panda-oreo/wang-editor",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pandaOreo",
+            "email": "819023279@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PandaOreo\\WangEditor\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "PandaOreo\\WangEditor\\WangEditorServiceProvider",
+        "laravel": {
+            "providers": [
+                "PandaOreo\\WangEditor\\WangEditorServiceProvider"
+            ]
+        }
+    }
+}
