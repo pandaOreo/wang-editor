@@ -56,7 +56,7 @@ class WangEditorController extends Controller
         if ( !file_exists($filepath) ) {
             @mkdir($filepath);
         }
-        $savepath = env('APP_URL') . '/' . $filepath . $filename;
+        $savepath = env('APP_URL') . '/uploads/video/' . date('Ymd') . '/' . $filename;
         $file->move($filepath, $filename);
         return response()->json([
             'errno' => 0,
