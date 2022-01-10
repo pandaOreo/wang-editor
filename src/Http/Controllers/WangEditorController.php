@@ -52,7 +52,7 @@ class WangEditorController extends Controller
     {
         $file = $request->file('wangvideo');
         $filename = time() . random_int(6, 6) . '.mp4';
-        $filepath = 'uploads/video/' . date('Ymd') . '/';
+        $filepath = public_path('uploads/video/' . date('Ymd') . '/');
         if ( !file_exists($filepath) ) {
             @mkdir($filepath);
         }
