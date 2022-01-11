@@ -8,7 +8,7 @@
                 @if($value)
                     {!! $value !!}
                 @else
-                    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+                    <p></p>
                 @endif
             </div>
         </div>
