@@ -20,9 +20,9 @@ class WangEditorController extends Controller
 
     public function uploadImage(Request $request)
     {
-        $files = $request->file('wangpic');
+        $files = $request->file();
         $res = ['errno' => 1, 'errmsg' => '上传图片错误'];
-        if ( $request->hasFile('wangpic') && count($files) > 0 ) {
+        if ( count($files) > 0 ) {
             $data = [];
             foreach ( $files as $key => $file ) {
                 $ext = strtolower($file->extension());
@@ -31,16 +31,18 @@ class WangEditorController extends Controller
                     $res = ['errno' => 1, 'errmsg' => '请上传正确的图片类型,支持jpg,png,gif,jpeg'];
                     return response()->json($res);
                 }
-                $filename = time() . str_random(6) . '.' . $ext;
-                $filepath = 'uploads/images/' . date('ymd') . '/';
-                if ( !file_exists($filepath) && !mkdir($filepath) && !is_dir($filepath) ) {
-                    throw new \RuntimeException(sprintf('Directory "%s" was not created', $filepath));
+                $filename = time() . random_int(1, 1000) . random_int(1, 1000) . '.' . $ext;
+                $filepath = 'uploads/images/' . date('Ymd') . '/';
+                if ( !file_exists(public_path($filepath)) ) {
+                    @mkdir(public_path($filepath));
                 }
                 $savepath = env('APP_URL') . '/' . $filepath . $filename;
                 if ( $file->move($filepath, $filename) ) {
-                    $data[$key]['url'] = $savepath;
-                    $data[$key]['alt'] = '';
-                    $data[$key]['href'] = '';
+                    $data[] = array(
+                        "url" => $savepath,
+                        'alt' => '',
+                        'href' => ''
+                    );
                 }
             }
             $res = ['errno' => 0, 'data' => $data];

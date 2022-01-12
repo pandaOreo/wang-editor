@@ -21,9 +21,14 @@
     // editor.config.showLinkImg = false
     editor.config.height = 500
     editor.config.uploadImgMaxLength = 5 // 一次最多上传 5 个图片
-    editor.config.uploadImgShowBase64 = true
+    // editor.config.uploadImgShowBase64 = true
+    editor.config.uploadImgServer = '/admin/api/upload/image'
+    editor.config.uploadFileName = 'wangpic'
     editor.config.uploadImgAccept = ['jpg', 'jpeg', 'png', 'gif']
     editor.config.uploadImgMaxSize = 10 * 1024 * 1024 // 10M
+    editor.config.uploadImgHeaders = {
+        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+    }
     // 或者 const editor = new E( document.getElementById('div1') )
 
     // 视频
