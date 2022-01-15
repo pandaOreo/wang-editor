@@ -5,11 +5,7 @@
         <div class="extension-demo">
             @csrf
             <div id="{{$name}}">
-                @if($value)
-                <p>{!! $value !!}</p>
-                @else
-                <p></p>
-                @endif
+                {!! $value !!}
             </div>
         </div>
     </div>
