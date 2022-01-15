@@ -6,9 +6,9 @@
             @csrf
             <div id="{{$name}}">
                 @if($value)
-                    {!! $value !!}
+                <p>{!! $value !!}</p>
                 @else
-                    <p></p>
+                <p></p>
                 @endif
             </div>
         </div>
@@ -38,9 +38,10 @@
         'X-CSRF-TOKEN': $('input[name="_token"]').val()
     }
     // 配置 onchange 回调函数
-    editor.config.onchange = function (newHtml) {
+    editor.config.onchange = function(newHtml) {
         console.log("change 之后最新的 html", newHtml);
         $("input[name={{$name}}]").val(newHtml);
     };
+    // editor.txt.html("{!! $value !!}");
     editor.create()
 </script>
